@@ -13,7 +13,7 @@ setuptools.setup(
     description='Ardupilot API',
     long_description_content_type="text/markdown",
     long_description=LongDescription,
-    url='https://github.com/o-gent/dronekit-python',
+    url='https://github.com/o-gent/dronekit',
     author='ogent',
     install_requires=[
         'pymavlink>=2.2.20',
