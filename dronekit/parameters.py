@@ -1,10 +1,11 @@
-import collections
+import collections.abc
 import logging
 import struct
 import time
 from time import monotonic
 
 from dronekit.observers import HasObservers
+
 
 class APIException(Exception):
     """
@@ -13,7 +14,7 @@ class APIException(Exception):
     :param String message: Message string describing the exception
     """
 
-class Parameters(collections.MutableMapping, HasObservers):
+class Parameters(collections.abc.MutableMapping, HasObservers):
     """
     This object is used to get and set the values of named parameters for a vehicle. See the following links for information about
     the supported parameters for each platform: `Copter Parameters <http://copter.ardupilot.com/wiki/configuration/arducopter-parameters/>`_,
