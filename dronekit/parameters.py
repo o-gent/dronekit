@@ -6,22 +6,12 @@ from time import monotonic
 
 from dronekit.observers import HasObservers
 
-
 class APIException(Exception):
     """
     Base class for DroneKit related exceptions.
 
     :param String message: Message string describing the exception
     """
-
-
-class APIException(Exception):
-    """
-    Base class for DroneKit related exceptions.
-
-    :param String message: Message string describing the exception
-    """
-
 
 class Parameters(collections.MutableMapping, HasObservers):
     """

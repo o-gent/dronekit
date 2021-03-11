@@ -13,12 +13,20 @@ from threading import Thread
 
 from pymavlink import mavutil
 
-from dronekit import APIException
 
 if platform.system() == 'Windows':
     from errno import WSAECONNRESET as ECONNABORTED
 else:
     from errno import ECONNABORTED
+
+
+class APIException(Exception):
+    """
+    Base class for DroneKit related exceptions.
+
+    :param String message: Message string describing the exception
+    """
+
 
 
 class MAVWriter(object):

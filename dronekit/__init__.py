@@ -34,10 +34,19 @@ A number of other useful classes and methods are listed below.
 
 import logging
 
-from dronekit.util import ErrprinterHandler
 from dronekit.vehicle import Vehicle
 
 
+class ErrprinterHandler(logging.Handler):
+    """Logging handler to support the deprecated `errprinter` argument to connect()"""
+
+    def __init__(self, errprinter):
+        logging.Handler.__init__(self)
+        self.errprinter = errprinter
+
+    def emit(self, record):
+        msg = self.format(record)
+        self.errprinter(msg)
 
 def default_still_waiting_callback(atts):
     logging.getLogger(__name__).debug("Still waiting for data from vehicle: %s" % ','.join(atts))
