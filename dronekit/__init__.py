@@ -35,6 +35,7 @@ A number of other useful classes and methods are listed below.
 import logging
 
 from dronekit.vehicle import Vehicle
+from dronekit.command import Command
 
 
 class ErrprinterHandler(logging.Handler):

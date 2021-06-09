@@ -229,7 +229,9 @@ class MAVConnection(object):
                         except socket.error as error:
                             # If connection reset (closed), stop polling.
                             if error.errno == ECONNABORTED:
-                                raise APIException('Connection aborting during send')
+                                self._logger.exception("Exception.. reseting...")
+                                #raise APIException('Connection aborting during send')
+                                self.reset()
                             raise
                         except mavutil.mavlink.MAVError as e:
                             # Avoid
