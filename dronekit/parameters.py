@@ -80,11 +80,11 @@ class Parameters(collections.abc.MutableMapping, HasObservers):
         remaining = retries
         while True:
             self._vehicle._master.param_set_send(name, value)
-            tstart = monotonic.monotonic()
+            tstart = monotonic()
             if remaining == 0:
                 break
             remaining -= 1
-            while monotonic.monotonic() - tstart < 1:
+            while monotonic() - tstart < 1:
                 if name in self._vehicle._params_map and self._vehicle._params_map[name] == value:
                     return True
                 time.sleep(0.1)
